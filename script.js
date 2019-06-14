@@ -48,3 +48,28 @@ $('#design').change( (e) => {
         $('#color option[value ="gold"]').hide();
       };
 
+// ACTIVITIES
+
+// CREATE an element to display the total cost.
+
+    const $totalActivitiesDisplay = $("<label><span>Total Cost: $</span></label>");
+    $('.activities').append($totalActivitiesDisplay);
+    let $totalActivitiesCost = 0 ;
+
+// LISTEN for changes in the Activity section.
+    
+    $('.activities').change( (e) => {
+        let $selectedActivities = $(e.target);
+        console.log($selectedActivities);
+        const $parentLabel = $selectedActivities.parent().text();
+        console.log($parentLabel);
+
+        const $dollarIndex = $($parentLabel).indexOf('$');
+        console.log($dollarIndex);
+
+        let $activityCost = $parentLabel.slice($dollarIndex);
+        console.log($activityCost);
+
+        $activityCost = parseInt($activityCost);
+
+     });
